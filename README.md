@@ -3,7 +3,7 @@ How to install NIOS 2 EDS contained in Quartus Prime Lite 20.1.1 on Ubuntu 20.04
 
 ## Install system Prerequisites
 
-taken from https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/manual/quartus_install.pdf
+taken from the [official installation instructions](https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/manual/quartus_install.pdf)
 
 ```
 sudo apt install libc6:i386 libncurses5:i386 libxtst6:i386 libxft2:i386 libstdc++6:i386 libc6-dev-i386 libxft2 lib32z1 lib32ncurses6 libbz2-1.0:i386 libpng16-16
@@ -13,7 +13,7 @@ Note: some libraries were not available in the version described in the installa
 
 ## Download Quartus Prime Lite and Device Support Packages
 
-Go to https://fpgasoftware.intel.com/20.1.1/?edition=lite&platform=linux and select either of:
+Go to [official download page](https://fpgasoftware.intel.com/20.1.1/?edition=lite&platform=linux) and select either of:
 - Quartus Prime Lite Edition Software (Device support included) (6.4GB!!!)
 - Quartus Prime (includes Nios II EDS) + Device Support Package for your target device
 
@@ -30,7 +30,7 @@ Note: the device package in the same folder was automatically added to the insta
 
 ## Install Eclipse needed for NIOS2EDS
 
-originally described in https://www.intel.com/content/www/us/en/programmable/documentation/lro1419794938488.html#zyy1556500180085
+as originally described in the [official documentation](https://www.intel.com/content/www/us/en/programmable/documentation/lro1419794938488.html#zyy1556500180085)
 
 - Download:
   ```
@@ -48,3 +48,18 @@ originally described in https://www.intel.com/content/www/us/en/programmable/doc
   ```
   ./eclipse-nios2
   ```
+
+## Configure Java version to use
+
+Make sure java is installed on your system:
+```
+sudo apt install default-jre
+```
+
+When I ran ```eclipse-nios``` on my installation, startup failed with error ```free(): invalid pointer```. I used a workaround similar to the solution in [this link](https://community.intel.com/t5/Intel-Quartus-Prime-Software/Nios-Eclipse-crashes-free-invalid-pointer/td-p/1215911) to resolve the issue:
+```
+cd <your_quartus_installation>/quartus/linux64
+mv jre64 jre64_unused
+ln -s /usr/lib/jvm/java-X.XX.X-openjdk-amd64
+```
+Note: Your java version and installation path may vary, check ```/lib``` for example.
