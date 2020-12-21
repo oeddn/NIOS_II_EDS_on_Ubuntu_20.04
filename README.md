@@ -60,6 +60,6 @@ When I ran ```eclipse-nios``` on my installation, startup failed with error ```f
 ```
 cd <your_quartus_installation>/quartus/linux64
 mv jre64 jre64_unused
-ln -s /usr/lib/jvm/java-X.XX.X-openjdk-amd64
+ln -s /usr/lib/jvm/default-java jre64
 ```
 Note: Your java version and installation path may vary, check ```/lib``` for example.
