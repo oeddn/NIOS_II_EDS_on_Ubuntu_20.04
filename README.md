@@ -63,3 +63,8 @@ mv jre64 jre64_unused
 ln -s /usr/lib/jvm/default-java jre64
 ```
 Note: Your java version and installation path may vary, check ```/lib``` for example.
+
+## Install support for Arrow USB BLaster
+
+Choose the right driver version for your Programmer from https://shop.trenz-electronic.de/Download/?path=Trenz_Electronic/Software/Drivers/Arrow_USB_Programmer
+, unzip it and install the files according to the instructions in the README file
